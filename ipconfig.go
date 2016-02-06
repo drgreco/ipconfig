@@ -133,7 +133,12 @@ func index (c web.C, w http.ResponseWriter, r *http.Request) {
 // returns ip (8.8.8.8)
 //
 func ip (r *http.Request) string {
-    return fmt.Sprintf("%s", ipRE.FindString(r.RemoteAddr))
+    var ip = ipRE.FindString(r.RemoteAddr)
+    var realIP = getHeader(r, "X-Real-IP")
+    if realIP != "" {
+        return realIP
+    }
+    return ip
 }
 
 //
@@ -247,7 +252,7 @@ func via (r *http.Request) string {
 // an HTTP prox
 // (for=192.0.2.60;proto=http;by=203.0.113.43)
 func forwarded (r *http.Request) string {
-    return fmt.Sprintf("%s", getHeader(r, "Forwarded"))
+    return fmt.Sprintf("%s", getHeader(r, "X-Forwarded-For"))
 }
 
 //
@@ -454,7 +459,6 @@ func fullPage (r *http.Request) string {
     }
 
     // compile some more regex for templating the html
-    var urlRE = regexp.MustCompile("##URL##")
     var ip_addrRE = regexp.MustCompile("##ip_addr##")
     var remote_hostRE = regexp.MustCompile("##remote_host##")
     var user_agentRE = regexp.MustCompile("##user_agent##")
@@ -469,16 +473,13 @@ func fullPage (r *http.Request) string {
     var charsetRE = regexp.MustCompile("##charset##")
     var viaRE = regexp.MustCompile("##via##")
     var forwardedRE = regexp.MustCompile("##forwarded##")
-    var allRE = regexp.MustCompile("##all##")
-    var allxmlRE = regexp.MustCompile("##allxml##")
-    var alljsonRE = regexp.MustCompile("##alljson##")
 
-/*    // create a few regex we know we will need
+    // create a few regex we know we will need
     var urlRE = regexp.MustCompile("##URL##")
     var allRE = regexp.MustCompile("##all##")
     var allxmlRE = regexp.MustCompile("##allxml##")
     var alljsonRE = regexp.MustCompile("##alljson##")
-*/
+
     // convert the byte array into a string
     template := string(templateBytes)
 
@@ -503,6 +504,8 @@ func fullPage (r *http.Request) string {
     template = viaRE.ReplaceAllString(template, allData["via"])
     template = forwardedRE.ReplaceAllString(template, allData["forwarded"])
 
+// we should probably do it like this commented out code, 
+// but it wasn't working for some reason
 /*    // loop through our special list
     // and apply the rest of the regex
     for _, key := range dataOrder {
