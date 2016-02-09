@@ -4,59 +4,59 @@ web-service for command line to return certain IP information. Clone of ifconfig
 ### supported endpoints
 **/** 
 
-if your user agent contains the string 'curl', returns your public ip address in plain text
-if your user agent does not contain 'curl', gives you a webpage built off of template.html will all known info
+If your user agent contains the string 'curl', returns your public IP address in plain text.
+If your user agent does not contain 'curl', gives you a webpage built off of template.html with all known information.
 
 **/ip**
-returns your public ip in plain text
+Returns your public IP in plain text.
 
 **/host**
-attempts to do a reverse dns lookup on your public ip, returns all responses. if that fails, you get your ip back again.
+Attempts to do a reverse DNS lookup on your public IP, returns all responses. If that fails, you get your IP back again.
 
 **/ua**
-returns the user-agent string you reported
+Returns the user-agent string you reported.
 
 **/proto**
-returns the HTTP protocol you have negotiated
+Returns the HTTP protocol you have negotiated.
 
 **/port**
-returns the client side port that has been negotiated. I really hope thats its somewhere between 1025 and 65535
+Returns the client-side port that has been negotiated. I really hope thats its somewhere between 1025 and 65535.
 
 **/lang **
-returns the langauge that your client reports using
+Returns the langauge that your client reports using.
 
 **/ref**
-returns any referres (if you happened to be redirected to the service)
+Returns any referrers (if you happened to be redirected to the service).
 
 **/connection**
-returns status of HTTP connection
+Returns the status of HTTP connection.
 
 **/method**
-returns the method which you queried the service (GET,POST, etc)
+Returns the method which you queried the service (GET, POST, etc).
 
 **/encoding**
-returns the HTTP encoding schemes your client wants to use
+Returns the HTTP encoding schemes your client wants to use.
 
 **/mime**
-returns any mime-types reported
+Returns any mime-types reported.
 
 **/charset**
-returns requested character sets
+Returns requested character sets.
 
 **/via**
-returns forwarding information
+Returns forwarding information.
 
 **/forwarded**
-returns proxying information
+Returns proxying information.
 
 **/all**
-returns all of the above information formatted for console output
+Returns all of the above information formatted for console output.
 
 **/all.xml**
-returns all of the above information formatted in json
+Returns all of the above information formatted in XML.
 
 **/all.json**
-returns all of the above information formatted in json
+Returns all of the above information formatted in JSON.
 
 
 ## running the service
@@ -65,7 +65,7 @@ The service is written in go, and is mostly a way for me to get more practice. T
 go get github.com/zenazn/goji
 ```
 
-then either run, or build, then run that executable
+Then either run, or build, then run that executable:
 ```
 go run ipconfig
 ```
@@ -98,4 +98,4 @@ server {
 }
 ```
 
-###### Criticisims, suggestions, and questions are all welcome. 
+###### Criticisms, suggestions, and questions are all welcome. 
