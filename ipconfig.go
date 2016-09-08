@@ -134,7 +134,7 @@ func index (c web.C, w http.ResponseWriter, r *http.Request) {
 //
 func ip (r *http.Request) string {
     var ip = ipRE.FindString(r.RemoteAddr)
-    var realIP = getHeader(r, "X-Real-IP")
+    var realIP = getHeader(r, "X-Forwarded-For")
     if realIP != "" {
         return realIP
     }
