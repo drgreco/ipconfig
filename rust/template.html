@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang ="en">
+    <head>
+        <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-style-type" content="text/css" />
+        <meta http-equiv="content-language" content="en" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta name="description" content="get my public ip" />
+        <meta name="author" content="https://github.com/drgreco" />
+        <title>what is my public ip</title>
+        <style type="text/css">
+            * {font-family:Arial,sans-serif;color:#333;}
+            table {
+                border-collapse: collapse;
+                margin: auto;
+                width: 700px;
+                table-layout: fixed;
+            }
+            table, td, th { 
+                border: 1px solid black;
+            }
+            tr { height: 30px; }
+            td { padding: 5px; overflow:hidden; }
+            h1, h3 {
+                margin: auto;
+                width: 60%;
+                padding: 10px;
+                color: white;
+            }
+            h4 { 
+                margin: 2px;
+                float: right;
+            }
+            pre { font-family: monospace; margin: 2px; }
+            hr { border: 5px solid #666; margin-top: 8px;}
+            #header { 
+                background: #666;
+                text-align: right; 
+                margin: auto; 
+                height: 50px; 
+                padding: 15px 0 10px 10px; 
+            }
+            #header2 { 
+                background: #666;
+                text-align: left; 
+                margin: auto; 
+                height: 30px; 
+                padding: 15px 0 10px 10px; 
+            }
+            #footer {
+                background: #666;
+                text-align: center;
+                margin: auto;
+                height: 10px;
+                padding: 2px;
+            }
+            #container {
+                background: white;
+                width: 750px;
+                margin: 10px auto;
+                margin-bottom: 10px;
+                border: solid 1px #888;
+            }
+            .curl {
+                height: 15px;   
+                width: 750px;
+            }
+            .key { width: 100px; }
+            .val { width: 100px; word-break: break-word; }
+            .cmd {}
+            .out {}
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <br />
+            <br />
+            <div id="header">
+                <h1>##URL##</h1>
+            </div>
+            <br />
+            <table>
+                <tr> <td class="key">IP Address</td><td><strong>##ip_addr##</strong></td> </tr>
+                <tr> <td class="key">Remote Host</td><td class="val">##remote_host##</td> </tr>
+                <tr> <td class="key">User Agent</td><td class="val">##user_agent##</td> </tr>
+                <tr> <td class="key">Protocol</td><td class="val">##protocol##</td> </tr>
+                <tr> <td class="key">Port</td><td class="val">##port##</td> </tr>
+                <tr> <td class="key">Language</td><td class="val">##language##</td> </tr>
+                <tr> <td class="key">Referrer</td><td class="val">##referrer##</td> </tr>
+                <tr> <td class="key">Connection</td><td class="val">##connection##</td> </tr>
+                <tr> <td class="key">Method</td><td class="val">##method##</td> </tr>
+                <tr> <td class="key">Encoding</td><td class="val">##encoding##</td> </tr>
+                <tr> <td class="key">Mime</td><td class="val">##mime##</td> </tr>
+                <tr> <td class="key">Charset</td><td class="val">##charset##</td> </tr>
+                <tr> <td class="key">Via</td><td class="val">##via##</td> </tr>
+                <tr> <td class="key">Forwarded</td><td class="val">##forwarded##</td> </tr>
+            </table>
+
+            <br />
+            <br />
+
+            <div id="header2">
+                <h3>curl interface</h3>
+            </div>
+            <table class="curl">
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/</pre></td> 
+                    <td><pre class="out">##ip_addr##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/ip</pre></td> 
+                    <td><pre class="out">##ip_addr##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/host</pre></td> 
+                    <td><pre class="out">##remote_host##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/ua</pre></td> 
+                    <td><pre class="out">##user_agent##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/proto</pre></td> 
+                    <td><pre class="out">##protocol##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/port</pre></td> 
+                    <td><pre class="out">##port##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/lang</pre></td> 
+                    <td><pre class="out">##language##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/ref</pre></td> 
+                    <td><pre class="out">##referrer##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/connection</pre></td> 
+                    <td><pre class="out">##connection##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/method</pre></td> 
+                    <td><pre class="out">##method##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/encoding</pre></td> 
+                    <td><pre class="out">##encoding##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/mime</pre></td> 
+                    <td><pre class="out">##mime##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/charset</pre></td> 
+                    <td><pre class="out">##charset##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/via</pre></td> 
+                    <td><pre class="out">##via##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/forwarded</pre></td> 
+                    <td><pre class="out">##forwarded##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/all</pre></td> 
+                    <td><pre class="out">##all##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/all.xml</pre></td> 
+                    <td><pre class="out">##allxml##</pre></td> 
+                </tr>
+                <tr> 
+                    <td><pre class="cmd">curl http://##URL##/alljson</pre></td> 
+                    <td><pre class="out">##alljson##</pre></td> 
+                </tr>
+            </table>
+
+            <br />
+            <br />
+            <h4>made late at night by <a href="https://github.com/drgreco">drgreco</a></h4>
+            <hr />
+        </div>
+    </body>
+</html>

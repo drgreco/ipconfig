@@ -1,5 +1,7 @@
 # ipconfig
-web-service for command line to return certain IP information. Clone of ifconfig.me
+I like having a service that I can hit with curl and get my public facing IP address. This is a project where I attmpt to get mildly famliar with new languages by creating an 'ipconfig' service in that langauge
+
+The webservice is intended for command line use and will return certain IP information. 
 
 ### supported endpoints
 **/** 
